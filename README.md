@@ -50,23 +50,6 @@ flux에서는 여러 스토어를 가질 수 있지만 redux는 하나의 스토
 
 ### reducer
 
-```javascript
-import {CREATE_COUPON} from '../actions';
-
-const todos = (state={}, action) => {
-    switch(action.type){
-        case CREATE_COUPON:
-            return [...state, {
-                'type':action.type,
-                'code':action.code
-            }]
-        default:
-            return state
-    }
-}
-
-export default todos
-```
 todos에서 반환되는 state={}는 이전상태이고 action은 액션에서 보낸 현재 상태이다. 여기서 주의할 점은 리듀서에는 어떠한 비지니스 로직 및 계산하는 자바스크립트 형식이 들어가면 안된다. 이곳은 상태의 변경을 감지하는 역할만 한다.
 
 ```javascript
@@ -86,7 +69,6 @@ const todos = (state={}, action) => {
 
 export default todos
 ```
-
 
 애플리케이션이 커지면 커질수록 많은 리듀서들이 생겨나게 되어 파일을 쪼개어 관리는 방법이 훤씩 효율적이다. combineReducers를 이용하여 쪼개진 리듀서들 묶어 
 줄수 있다.
