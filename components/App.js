@@ -1,9 +1,9 @@
 'use strict';
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import uuid from 'node-uuid';
 
-class App extends Component{
+export default class App extends Component{
 	clickHandler(e){
 		this.props.onclick(uuid.v4());
 	}
@@ -18,5 +18,3 @@ class App extends Component{
 		)
 	}
 }
-
-export default App;
