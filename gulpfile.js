@@ -30,7 +30,7 @@ gulp.task('browserify', function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch(['*.js', './actions/*.js', './reducers/*.js', './containers/*.js', './components/*.js',], ['browserify']);
+	gulp.watch(['*.js', './actions/*.js', './reducers/*.js', './containers/*.js', './components/*.js'], ['browserify']);
 });
 
 gulp.task('default', ['webserver', 'browserify', 'watch']);

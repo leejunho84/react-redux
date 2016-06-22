@@ -1,8 +1,12 @@
+'use strict';
+
 import {combineReducers} from 'redux';
-import todo from './todos.js';
+import coupon from './reducer_coupon';
+import filter from './reducer_filter';
 
 const todoApp = combineReducers({
-	todo
+	coupon,
+	filter
 });
 
 export default todoApp;

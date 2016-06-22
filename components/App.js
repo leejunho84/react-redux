@@ -12,7 +12,7 @@ export default class App extends Component{
 		return(
 			<div className='container'>
 				<h1>CouponPage</h1>
-				<span>{this.props.coupon?this.props.coupon.code:''}</span>
+				<span>{this.props.coupon}</span>
 				<button onClick={e => this.clickHandler(e)}>쿠폰받기</button>
 			</div>
 		)

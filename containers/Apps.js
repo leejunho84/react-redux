@@ -3,19 +3,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createCoupon, removeCoupon } from '../actions';
-import App from '../components/App';
+import App from '../components/app';
 import CounterApp from '../components/counterapp';
 
 
 class Apps extends Component {
 	render(){
-		let {onTodoAddCoupon, onTodoRemoveCoupon, state} = this.props;
-		let code = (state.length) ? {code:state[state.length - 1].code} : '';
+		let {onTodoAddCoupon, onTodoRemoveCoupon, coupon, filter} = this.props;
+		let code = (coupon.length) ? {code:coupon[coupon.length - 1].code} : '';
 
 		return (
 			<div>
-				<App onclick={code => onTodoAddCoupon(code)} coupon={{code:code.code}} />
-				<CounterApp onclick={index => onTodoRemoveCoupon(index)} couponList={state} />
+				<App onclick={(code) => {onTodoAddCoupon(code)}} coupon={code.code} />
+				<CounterApp onclick={(index)=>{onTodoRemoveCoupon(index)}} filter={filter} couponList={coupon} />
 			</div>
 		)
 	}
@@ -23,7 +23,8 @@ class Apps extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		state:state.todo
+		coupon:state.coupon,
+		filter:state.filter
 	}
 }
 
@@ -37,5 +38,6 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	}
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Apps);
